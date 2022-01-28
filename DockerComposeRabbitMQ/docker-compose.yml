@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  rabbitmqnew:
+    build: .
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+      - RABBITMQ_CONFIG_FILE=./rabbitmq.conf
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log [{console,[{level,debug}]}]
